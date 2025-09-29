@@ -1,5 +1,6 @@
 package org.uthmaniv.repository;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
@@ -42,6 +43,17 @@ public class ToDoRepository {
         }
         userTodos.put(user.getEmail(), todo);
         return objectMapper.writeValueAsString(new Response("success", "Todo updated successfully", todo));
+    }
+
+    public String updateTodoStatus (User user, String title, Status status) throws IOException {
+        List<ToDo> todos = Lists.newArrayList(userTodos.get(user.getEmail()));
+        ToDo toDo = todos.stream()
+                .filter(t -> t.getTitle().equals(title))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Todo not found"));
+        toDo.setStatus(status);
+        userTodos.put(user.getEmail(), toDo);
+        return objectMapper.writeValueAsString(new Response("Success", "Todo updated Successfully", toDo));
     }
 
     public String getAllTodos(User user) throws IOException {
