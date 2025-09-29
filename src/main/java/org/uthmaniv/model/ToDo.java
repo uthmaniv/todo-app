@@ -1,31 +1,34 @@
 package org.uthmaniv.model;
 
-import jakarta.persistence.*;
-
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
+import java.util.UUID;
 
-@Entity
+
+enum Status{
+    ACTIVE,
+    COMPLETED,
+}
+
 public class ToDo implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private final String id;
 
-    @Column(nullable = false)
     private String title;
 
-    @Column
     private String description;
 
-    @Column
     private final Instant dateCreated;
 
+    private Status status;
+
     public ToDo(String title, String description) {
+        this.id = UUID.randomUUID().toString();
         this.title = title;
         this.description = description;
         this.dateCreated = Instant.now();
+        this.status = Status.ACTIVE;
     }
 
     public String getTitle() {
