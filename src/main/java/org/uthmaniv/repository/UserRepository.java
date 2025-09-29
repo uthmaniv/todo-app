@@ -7,7 +7,7 @@ import org.apache.commons.collections4.bidimap.DualHashBidiMap;
 import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
 import org.uthmaniv.model.ToDo;
 import org.uthmaniv.model.User;
-import org.uthmaniv.service.Response;
+import org.uthmaniv.utils.Response;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package org.uthmaniv.service;
+package org.uthmaniv.utils;
 
 public class Response {
 

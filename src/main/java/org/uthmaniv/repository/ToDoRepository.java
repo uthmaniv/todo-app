@@ -1,6 +1,5 @@
 package org.uthmaniv.repository;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
@@ -9,7 +8,7 @@ import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
 import org.uthmaniv.model.User;
 import org.uthmaniv.utils.Status;
 import org.uthmaniv.model.ToDo;
-import org.uthmaniv.service.Response;
+import org.uthmaniv.utils.Response;
 
 import java.io.IOException;
 import java.util.ArrayList;
