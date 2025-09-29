@@ -52,4 +52,8 @@ public class UserRepository {
         user.setPassword(newPassword);
         return objectMapper.writeValueAsString(new Response("success", "Password updated successfully"));
     }
+
+    public boolean userExists(String email) {
+        return users.containsKey(email);
+    }
 }

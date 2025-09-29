@@ -1,15 +1,11 @@
 package org.uthmaniv.model;
 
+import org.uthmaniv.utils.Status;
+
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 import java.util.UUID;
-
-
-enum Status{
-    ACTIVE,
-    COMPLETED,
-}
 
 public class ToDo implements Serializable {
 
@@ -35,18 +31,24 @@ public class ToDo implements Serializable {
         return title;
     }
 
-    public ToDo setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
-        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public ToDo setDescription(String description) {
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public void setDescription(String description) {
         this.description = description;
-        return this;
     }
 
     public Instant getDateCreated() {
